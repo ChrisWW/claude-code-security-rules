@@ -1,8 +1,25 @@
 # Claude Code Security Rules
 
-A comprehensive, battle-tested set of security rules for [Claude Code](https://code.claude.com) — specifically designed for use with `--dangerously-skip-permissions` mode (`bypassPermissions`).
+A comprehensive set of security rules for [Claude Code](https://code.claude.com) — specifically designed for use with `--dangerously-skip-permissions` mode (`bypassPermissions`).
 
 When you run Claude Code without its built-in permission prompts, **these rules become your safety net.** They prevent destructive file operations, accidental secret exposure, data exfiltration, cloud infrastructure damage, and dozens of other scenarios that could ruin your day.
+
+---
+
+## TL;DR — 3 Steps
+
+```bash
+# 1. Copy security.md to your Claude Code config
+curl -o ~/.claude/security.md \
+  https://raw.githubusercontent.com/ChrisWW/claude-code-security-rules/main/security.md
+
+# 2. Tell Claude Code to always follow these rules
+echo '> **MANDATORY**: Always read and follow `~/.claude/security.md` before executing any commands.' \
+  >> ~/.claude/CLAUDE.md
+
+# 3. Run Claude Code (with or without bypass mode)
+claude --dangerously-skip-permissions
+```
 
 ---
 
@@ -47,13 +64,13 @@ These security rules act as a behavioral guardrail — Claude Code reads them fr
 
 ```bash
 # Download the security rules
-curl -o ~/.claude/security.md https://raw.githubusercontent.com/ChrisWWa/claude-code-security-rules/main/security.md
+curl -o ~/.claude/security.md https://raw.githubusercontent.com/ChrisWW/claude-code-security-rules/main/security.md
 ```
 
 Or clone the repo and copy manually:
 
 ```bash
-git clone https://github.com/ChrisWWa/claude-code-security-rules.git
+git clone https://github.com/ChrisWW/claude-code-security-rules.git
 cp claude-code-security-rules/security.md ~/.claude/security.md
 ```
 
